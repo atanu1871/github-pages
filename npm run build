@@ -1,0 +1,59 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { FaPlay, FaEnvelope, FaInstagram, FaBriefcase } from "react-icons/fa";
+
+const Portfolio = () => {
+  const videos = [
+    { title: "TikTok Edit #1", url: "https://www.youtube.com/embed/sample1" },
+    { title: "Reel Edit #2", url: "https://www.youtube.com/embed/sample2" },
+    { title: "YouTube Edit #3", url: "https://www.youtube.com/embed/sample3" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-900 text-white p-6">
+      <header className="text-center py-10">
+        <h1 className="text-4xl font-bold">Video Editing Portfolio</h1>
+        <p className="text-gray-400 mt-2">Showcasing my best work in video editing</p>
+      </header>
+
+      <section className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {videos.map((video, index) => (
+          <Card key={index} className="bg-gray-800 rounded-lg shadow-lg">
+            <CardContent className="p-4">
+              <h2 className="text-lg font-semibold">{video.title}</h2>
+              <div className="mt-2">
+                <iframe
+                  className="w-full h-48 rounded-lg"
+                  src={video.url}
+                  title={video.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+
+      <footer className="text-center mt-10">
+        <h2 className="text-2xl font-bold">Let's Work Together</h2>
+        <p className="text-gray-400 mt-2">Contact me for professional video editing services</p>
+        <div className="flex justify-center space-x-4 mt-4">
+          <Button className="bg-blue-500 flex items-center px-4 py-2 rounded-lg">
+            <FaEnvelope className="mr-2" /> Email Me
+          </Button>
+          <Button className="bg-pink-500 flex items-center px-4 py-2 rounded-lg">
+            <FaInstagram className="mr-2" /> Instagram
+          </Button>
+          <Button className="bg-green-500 flex items-center px-4 py-2 rounded-lg">
+            <FaBriefcase className="mr-2" /> Hire Me
+          </Button>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Portfolio;
